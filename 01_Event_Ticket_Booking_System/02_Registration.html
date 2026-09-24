@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Booking - Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+        }
+
+        .register-box {
+            width: 450px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 0px 1px grey;
+        }
+
+        h2 {
+            color: darkblue;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="register-box">
+
+            <h2>New User Registration</h2>
+
+            <form onsubmit="return validateRegistration()">
+
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter Email">
+                </div>
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter Username">
+                </div>
+
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Password">
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="password" id="confirmPassoword" class="form-control" placeholder="Confirm Password">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateRegistration() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassoword = document.getElementById("confirmPassoword").value;
+
+            if (name == "") {
+                alert("Please Enter Name");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Please Enter Email");
+                return false;
+            }
+
+            if (username == "") {
+                alert("Please Enter Username");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please Enter password");
+                return false;
+            }
+
+            if (confirmPassoword == "") {
+                alert("Please confirm Password");
+                return false;
+            }
+
+            if (password != confirmPassoword) {
+                alert("Password and Confirm Password don't match");
+                return false;
+            }
+
+            alert("Registration Successfull!");
+            window.location.href = "03_Booking.html";
+            return false;
+        }
+    </script>
+</body>
+
+</html>
