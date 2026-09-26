@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hospital Appointment - Login</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<style>
+		body {
+			background-color: lightblue;
+			font-family: Arial;
+		}
+
+		.login-box {
+			width: 400px;
+			margin: 80px auto;
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px gray;
+		}
+
+		h2 {
+			text-align: center;
+			color: darkblue;
+			margin-bottom: 25px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="login-box">
+
+		<h2>Hospital Login</h2>
+
+		<form onsubmit="return validateLogin()">
+
+			<div class="form-group">
+				<label>Username:</label>
+				<input type="text" id="username" class="form-control" placeholder="Enter Username">
+			</div>
+
+			<div class="form-group">
+				<label>Password:</label>
+				<input type="password" id="password" class="form-control" placeholder="Enter Password">
+			</div>
+
+			<div class="form-group">
+				<label>Login As:</label>
+
+				<select id="userType" class="form-control">
+					<option value="">Select</option>
+					<option value="Patient">Patient</option>
+					<option value="Doctor">Doctor</option>
+				</select>
+			</div>
+
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">
+					Login
+				</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<script>
+
+		function validateLogin() {
+
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var userType = document.getElementById("userType").value;
+
+			if (username == "") {
+				alert("Please Enter Username");
+				return false;
+			}
+
+			if (password == "") {
+				alert("Please Enter Password");
+				return false;
+			}
+
+			if (userType == "") {
+				alert("Please Select Patient or Doctor");
+				return false;
+			}
+
+			alert("Login Successful!");
+			window.location.href = "02_Registration.html";
+			return false;
+		}
+
+	</script>
+
+</body>
+
+</html>

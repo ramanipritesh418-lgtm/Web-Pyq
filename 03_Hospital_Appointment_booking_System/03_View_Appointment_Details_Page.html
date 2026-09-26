@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Appointment Details</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: aquamarine;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .appointment-box {
+            width: 500px;
+            margin: 70px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="appointment-box">
+
+        <h2>Appointment Details</h2>
+
+        <form onsubmit="return viewAppointment()">
+
+            <div class="form-group">
+                <label>Doctor's Name:</label>
+
+                <input type="text"
+                    id="doctorName"
+                    class="form-control"
+                    placeholder="Enter Doctor's Name">
+            </div>
+
+            <div class="form-group">
+                <label>Appointment Date/Time:</label>
+
+                <input type="datetime-local"
+                    id="appointmentDate"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Status:</label>
+
+                <select id="status" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Confirm">Confirmed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <div class="text-center">
+
+                <button type="submit" class="btn btn-primary">
+                    View Appointment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        function viewAppointment() {
+
+            var doctorName = document.getElementById("doctorName").value;
+            var appointmentDate = document.getElementById("appointmentDate").value;
+            var status = document.getElementById("status").value;
+
+            if (doctorName == "") {
+                alert("Please Enter Doctor's Name");
+                return false;
+            }
+
+            if (appointmentDate == "") {
+                alert("Please Select Appointment Date/Time");
+                return false;
+            }
+
+            if (status == "") {
+                alert("Please Select Appointment Status");
+                return false;
+            }
+
+            alert("Appointment Details Viewed Successfully!");
+
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>

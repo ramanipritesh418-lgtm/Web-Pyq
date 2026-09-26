@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital - Patient Registration</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+        }
+
+        .register-box {
+            width: 450px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+
+        <h2>New Patient Registration</h2>
+
+        <form onsubmit="return validateRegistration()">
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" id="name"
+                    class="form-control"
+                    placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email"
+                    class="form-control"
+                    placeholder="Enter Email">
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" id="password"
+                    class="form-control"
+                    placeholder="Enter Password">
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password:</label>
+                <input type="password" id="confirmPassword"
+                    class="form-control"
+                    placeholder="Confirm Password">
+            </div>
+
+            <div class="text-center">
+
+                <button type="submit" class="btn btn-primary">
+                    Register
+                </button>
+
+                <button type="reset" class="btn btn-secondary">
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        function validateRegistration() {
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (name == "") {
+                alert("Please Enter Name");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Please Enter Email");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please Enter Password");
+                return false;
+            }
+
+            if (confirmPassword == "") {
+                alert("Please Confirm Password");
+                return false;
+            }
+
+            if (password != confirmPassword) {
+                alert("Password and Confirm Password Don't Match");
+                return false;
+            }
+
+            alert("Registration Successful!");
+
+            window.location.href = "03_View_Appointment_Details_Page.html";
+
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>
+
