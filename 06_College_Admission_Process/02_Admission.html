@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <!-- Custom Css -->
+    <style>
+        body {
+            background-color: lightgreen;
+            font-family: monospace;
+        }
+
+        .form-box {
+            width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .radio {
+            width: auto;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Admission form-box -->
+    <div class="form-box">
+
+        <h1>Admission Form</h1>
+
+        <form onsubmit="return validateForm()">
+            <!-- Name -->
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter Name">
+            <br><br>
+
+            <!-- Email -->
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter Email">
+            <br><br>
+
+            <!-- Mobile Number -->
+            <label>Mobile Number:</label>
+            <input type="text" id="mobile" placeholder="Enter Mobile Number">
+            <br><br>
+
+            <!-- Course Selection -->
+            <label>Course Selection</label>
+            <select id="course">
+                <option value="">Select Course</option>
+                <option value="BCA">B.C.A</option>
+                <option value="BBA">B.B.A</option>
+                <option value="B.com">B.com.</option>
+            </select>
+            <br><br>
+
+            <!-- Gender -->
+            <label>Gender:</label>
+            <br>
+            <input type="radio" class="radio" name="gender" value="Male">Male
+            <input type="radio" class="radio" name="gender" value="Female">Female
+            <br><br>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+    </div>
+<script>
+    function validateForm(){
+        var mobile=document.getElementById("mobile").value;
+        var email=document.getElementById("email").value;
+
+        if(mobile.length!=10 || isNaN(mobile)){
+            alert("Mobile Number must have 10 digits");
+            return false;
+        }
+    
+        if(email.indexOf("@")==-1){
+            alert("Email must contain @ sign");
+            return false;
+        }
+
+        alert("Admission Form Submitted Successfully!");
+        return false;
+    }
+</script>
+</body>
+
+</html>
