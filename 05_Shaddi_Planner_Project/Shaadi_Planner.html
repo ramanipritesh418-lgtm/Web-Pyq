@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shaadi Planner</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: lightpink;
+            font-family: 'Lucida Sans',
+                'Lucida Sans Regular',
+                'Lucida Grande',
+                'Lucida Sans Unicode',
+                Geneva,
+                Verdana,
+                sans-serif;
+        }
+
+
+        .header {
+            background-color: darkred;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+
+        .section {
+            background-color: white;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+
+
+        h2 {
+            color: darkred;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Website Header -->
+    <div class="header">
+
+        <h1>Shaadi Planner</h1>
+
+        <p>Making Your Wedding Memorable</p>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <!-- Services Section -->
+        <div class="section">
+
+            <h2 class="text-center">
+                Our Services
+            </h2>
+
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+
+                    <h4>Lighting</h4>
+
+                    <p>Beautiful Wedding Lighting.</p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <h4>Decoration</h4>
+
+                    <p>Attractive Wedding Decoration.</p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <h4>Event Management</h4>
+
+                    <p>Complete Event Management.</p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <h4>Clothing</h4>
+
+                    <p>Wedding Clothing Arrangements.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event Types Section -->
+        <div class="section">
+
+            <h2 class="text-center">
+                Types Of Events
+            </h2>
+
+
+            <div class="row text-center">
+
+                <div class="col-md-4">
+
+                    <h4>Wedding Ceremony</h4>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <h4>Reception</h4>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <h4>Engagement</h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- User Registration Section -->
+    <div class="section">
+
+        <h2 class="text-center">
+            User Registration
+        </h2>
+
+
+        <!-- Call JavaScript validation when form is submitted -->
+        <form onsubmit="return validateForm()">
+
+
+            <!-- Name -->
+            <div class="form-group">
+
+                <label>Name:</label>
+
+                <input type="text" id="name" class="form-control" placeholder="Enter Name">
+
+            </div>
+
+
+            <!-- Address -->
+            <div class="form-group">
+
+                <label>Address:</label>
+
+                <textarea id="address" class="form-control" placeholder="Enter Address"></textarea>
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label>Email:</label>
+
+                <input type="email" id="email" class="form-control" placeholder="Enter Email">
+
+            </div>
+
+
+            <!-- Contact Number -->
+            <div class="form-group">
+
+                <label>Contact No:</label>
+
+                <input type="text" id="contact" class="form-control" placeholder="Enter Contact No">
+
+            </div>
+
+
+            <!-- Age -->
+            <div class="form-group">
+
+                <label>Age:</label>
+
+                <input type="number" id="age" class="form-control" placeholder="Enter Age">
+
+            </div>
+
+
+            <!-- Wedding Location -->
+            <div class="form-group">
+
+                <label>Location of Wedding:</label>
+
+                <input type="text" id="location" class="form-control" placeholder="Enter Wedding Location">
+
+            </div>
+
+
+            <!-- Services Required -->
+            <div class="form-group">
+
+                <label>Services Required:</label>
+
+                <br>
+
+                <input type="checkbox" name="service" value="Lighting">
+                Lighting
+
+                <br>
+
+                <input type="checkbox" name="service" value="Decoration">
+                Decoration
+
+                <br>
+
+                <input type="checkbox" name="service" value="Event Management">
+                Event Management
+
+                <br>
+
+                <input type="checkbox" name="service" value="Clothing">
+                Clothing
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="text-center">
+
+                <button type="submit" class="btn btn-primary">
+                    Register
+                </button>
+
+
+                <button type="reset" class="btn btn-secondary">
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script>
+
+        // Validate the registration form
+        function validateForm() {
+
+            // Get the Name value
+            var name =
+                document.getElementById("name").value;
+
+
+            // Get the Contact Number value
+            var contact =
+                document.getElementById("contact").value;
+
+
+            // Check if Name is empty
+            if (name == "") {
+                alert("Please Enter Name");
+                return false;
+            }
+
+
+            // Check if Contact Number is empty
+            if (contact == "") {
+                alert("Please Enter Contact No");
+                return false;
+            }
+
+
+            // Check if Contact Number contains only digits
+            if (isNaN(contact)) {
+                alert("Please Enter only Digits");
+                return false;
+            }
+
+
+            // Display success message
+            alert("Registration Successful!");
+
+            return false;
+
+        }
+
+
+        /*
+        ==============================
+                  OUTPUT
+        ==============================
+
+        Website:
+        Shaadi Planner
+        Making Your Wedding Memorable
+
+        Services:
+        Lighting
+        Decoration
+        Event Management
+        Clothing
+
+        Events:
+        Wedding Ceremony
+        Reception
+        Engagement
+
+        Registration Form:
+        Name
+        Address
+        Email
+        Contact No
+        Age
+        Location of Wedding
+        Services Required
+
+        Validation:
+
+        Empty Name:
+        Please Enter Name
+
+        Empty Contact No:
+        Please Enter Contact No
+
+        Letters in Contact No:
+        Please Enter only Digits
+
+        Valid Details:
+        Registration Successful!
+
+        ==============================
+        */
+
+    </script>
+
+
+</body>
+
+</html>
