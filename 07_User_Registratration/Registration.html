@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Bootstrap Container -->
+    <div class="container mt-5">
+
+        <!-- Form Card -->
+        <div class="card p-4">
+
+            <h2 class="text-center mb-4">
+                User Registration Form
+            </h2>
+
+
+            <!-- Registration Form -->
+            <form onsubmit="return validateForm()">
+
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter Username">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" id="email" class="form-control" placeholder="Enter Email">
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="form-group">
+                    <label>Mobile Number:</label>
+                    <input type="text" id="mobile" class="form-control" placeholder="Enter Mobile Number">
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Password">
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password">
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        Reset
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript Validation -->
+    <script>
+
+        // Validate the registration form
+        function validateForm() {
+
+            // Get the Username
+            var username = document.getElementById("username").value;
+            // Get the Email
+            var email = document.getElementById("email").value;
+            // Get the Mobile Number
+            var mobile = document.getElementById("mobile").value;
+            // Get the Password
+            var password = document.getElementById("password").value;
+            // Get the Confirm Password
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Check Username
+            if (username == "") {
+                alert("Please Enter Username");
+                return false;
+            }
+
+            // Check Email
+            if (email.indexOf("@") == -1 ||
+                email.indexOf(".") == -1) {
+                alert("Please Enter a Valid Email");
+                return false;
+            }
+
+            // Check Mobile Number
+            if (mobile.length != 10 ||
+                isNaN(mobile)) {
+                alert("Mobile Number must have exactly 10 digits");
+                return false;
+            }
+
+            // Check Password and Confirm Password
+            if (password != confirmPassword) {
+                alert("Password and Confirm Password must be same");
+                return false;
+            }
+
+            // Display success message
+            alert("Registration Successful!");
+            return false;
+
+
+            /*
+            ==============================
+                    OUTPUT
+            ==============================
+
+            Empty Username:
+            Please Enter Username
+
+            Invalid Email:
+            Please Enter a Valid Email
+
+            Invalid Mobile:
+            Mobile Number must have exactly 10 digits
+
+            Different Passwords:
+            Password and Confirm Password must be same
+
+            All Valid:
+            Registration Successful!
+
+            ==============================
+            */
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
