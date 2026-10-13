@@ -1,0 +1,134 @@
+<!-- Question: Workshop Registration Portal
+
+Create a website in HTML for a “Workshop Registration Portal”.
+
+(a) Display available Workshops in a proper format using Bootstrap.
+
+(b) Create a Workshop Registration Page having the following fields:
+- Participant Name
+- Username
+- Password
+- Mobile Number
+- City
+- Workshop Topic
+Generate a list of Cities and Workshop Topics from which the user can select.
+
+(c) Perform the following validations on the registration page using JavaScript:
+1. Check whether Participant Name, Username, Password, and Mobile Number are entered or not.
+   If not, display the message: "Please enter the required fields."
+2. Check whether the Mobile Number contains only digits.
+   If not, display the message: "Please enter only digits."
+Use HTML, CSS, Bootstrap for styling, and JavaScript for form validation.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Workshop Registration</title>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="text-center">Workshop Registration Portal</h1>
+
+        <h3>Available Workshops</h3>
+
+        <div class="bg-info text-white p-3">
+            <h4>1. Web Development</h4>
+            <p>Learn HTML and CSS.</p>
+        </div>
+
+        <div class="bg-light p-3">
+            <h4>2. Python Programming</h4>
+            <p>Learn Python programming.</p>
+        </div>
+
+        <div class="bg-warning p-3">
+            <h4>3. Digital Marketing</h4>
+            <p>Learn digital marketing.</p>
+        </div>
+
+        <hr>
+
+        <h3>Workshop Registration Form</h3>
+
+        <form onsubmit="return checkForm()">
+
+            <label>Participant Name:</label>
+            <input type="text" id="pname" name="pname" class="form-control">
+
+            <br>
+
+            <label>Username:</label>
+            <input type="text" id="username" name="username" class="form-control">
+
+            <br>
+
+            <label>Password:</label>
+            <input type="password" id="password" name="password" class="form-control">
+
+            <br>
+
+            <label>Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" class="form-control">
+
+            <br>
+
+            <label>City:</label>
+            <select name="city" class="form-control">
+                <option>Surat</option>
+                <option>Ahmedabad</option>
+                <option>Vadodara</option>
+                <option>Rajkot</option>
+            </select>
+
+            <br>
+
+            <label>Workshop Topic:</label>
+            <select name="topic" class="form-control">
+                <option>Web Development</option>
+                <option>Python Programming</option>
+                <option>Digital Marketing</option>
+            </select>
+
+            <br>
+
+            <input type="submit" value="Register" class="btn btn-primary">
+
+        </form>
+
+    </div>
+
+    <script>
+        function checkForm() {
+            var name = document.getElementById("pname").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var mobile = document.getElementById("mobile").value;
+
+            if (name == "" || username == "" ||
+                password == "" || mobile == "") {
+                alert("Please enter the required fields.");
+                return false;
+            }
+
+            if (mobile == "" || isNaN(mobile) ||
+                mobile < 0 || mobile % 1 != 0) {
+                alert("Please enter only digits.");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
